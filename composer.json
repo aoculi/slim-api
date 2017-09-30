@@ -1,0 +1,38 @@
+{
+  "name": "aoculi/slim-api",
+  "description": "Starter pack to create an API with slim 3",
+  "version": "0.0.1",
+  "type": "project",
+  "keywords": [
+    "Slim 3",
+    "API",
+    "Starter",
+    "Boilerplate"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.1.0",
+    "slim/slim": "^3.8",
+    "illuminate/database": "^5.5",
+    "league/event": "^2.1",
+    "slim/flash": "^0.2.0",
+    "zeuxisoo/slim-whoops": "^0.6.1",
+    "vlucas/phpdotenv": "^2.4",
+    "slim/http-cache": "^0.4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.3"
+  },
+  "authors": [
+    {
+      "name": "Alexis Oculi",
+      "email": "alexis.oculi@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Api\\": "src/Api",
+      "Tests\\": "tests"
+    }
+  }
+}
