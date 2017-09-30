@@ -11,8 +11,11 @@ class Home extends Route
     {
         $app = $this->app;
 
-        $app->group('/', function () {
-            $this->get('', HomeController::class . ':index');
-        });
+        $app->group(
+            '/',
+            function () {
+                $this->get('', HomeController::class . ':index');
+            }
+        );
     }
 }

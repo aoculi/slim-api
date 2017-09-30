@@ -11,7 +11,7 @@ class DeletedResponse
      * @param int|null $status
      * @return ResponseInterface
      */
-    static public function send(ResponseInterface $response, ?int $status = 204): ResponseInterface
+    public static function send(ResponseInterface $response, ?int $status = 204): ResponseInterface
     {
         return $response
             ->withStatus($status);

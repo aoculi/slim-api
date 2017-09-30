@@ -13,7 +13,12 @@ class NotAllowedHandler extends Module
         $c = $this->container;
         $c['notAllowedHandler'] = function ($c) {
             return function ($request, $response, $methods) use ($c) {
-                return MethodNotAllowedResponse::send($c['response'], 'Method must be one of: ' . implode(', ', $methods), 405, $methods);
+                return MethodNotAllowedResponse::send(
+                    $c['response'],
+                    'Method must be one of: ' . implode(', ', $methods),
+                    405,
+                    $methods
+                );
             };
         };
     }

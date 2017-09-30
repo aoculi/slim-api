@@ -12,7 +12,7 @@ class CreatedResponse
      * @param int|null $status
      * @return ResponseInterface
      */
-    static public function send(ResponseInterface $response, array $data, ?int $status = 201): ResponseInterface
+    public static function send(ResponseInterface $response, array $data, ?int $status = 201): ResponseInterface
     {
         return $response
             ->withStatus($status)

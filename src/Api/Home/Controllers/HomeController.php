@@ -9,7 +9,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class HomeController
 {
 
-    function index(ServerRequestInterface $request, ResponseInterface $response, $arguments)
+    public function index(ServerRequestInterface $request, ResponseInterface $response, $arguments)
     {
         return OkResponse::send($response, ['Hello, welcome on the API']);
     }

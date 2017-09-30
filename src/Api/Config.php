@@ -8,7 +8,7 @@ namespace Api;
  */
 class Config
 {
-    static $path = __DIR__ . '/../../config/';
+    static private $path = __DIR__ . '/../../config/';
 
     /**
      * Return config file's data
@@ -41,7 +41,6 @@ class Config
     {
         $dir = self::$path;
         if ($path) {
-
             if (substr($path, 0, 1) != '/') {
                 $path = '/' . $path;
             }

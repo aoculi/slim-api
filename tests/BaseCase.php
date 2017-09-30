@@ -38,7 +38,6 @@ class BaseCase extends TestCase
     public function runApp($requestMethod, $requestUri, $requestData = null, $files = null)
     {
 
-
         // Create a mock environment for testing with
         $environment = Environment::mock(
             [
@@ -65,9 +64,12 @@ class BaseCase extends TestCase
             ->addEndpoint(\Api\Home\Routes\Home::class);
 
         // Create a fake route for testing
-        $app->get('/phpunit', function ($request, $response) {
-            return OkResponse::send($response, ['Yea']);
-        });
+        $app->get(
+            '/phpunit',
+            function ($request, $response) {
+                return OkResponse::send($response, ['Yea']);
+            }
+        );
 
         // Process the application
         $response = $app->process($request, $response);
@@ -85,5 +87,4 @@ class BaseCase extends TestCase
     {
         $this->assertTrue(true, true);
     }
-
 }

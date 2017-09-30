@@ -2,7 +2,6 @@
 
 namespace Api;
 
-
 use Psr\Container\ContainerInterface;
 
 class Route

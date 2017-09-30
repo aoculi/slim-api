@@ -12,15 +12,18 @@ class ForbiddenResponse
      * @param int|null $status
      * @return ResponseInterface
      */
-    static public function send(ResponseInterface $response, ?string $message = 'You are not authorized to access this resource.', ?int $status = 403): ResponseInterface
-    {
-        $res = array(
-            'error' => array(
+    public static function send(
+        ResponseInterface $response,
+        ?string $message = 'You are not authorized to access this resource.',
+        ?int $status = 403
+    ): ResponseInterface {
+        $res = [
+            'error' => [
                 'code' => $status,
                 'message' => $message,
                 'help' => ''
-            )
-        );
+            ]
+        ];
 
         return $response
             ->withStatus($status)

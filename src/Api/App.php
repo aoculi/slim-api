@@ -2,7 +2,6 @@
 
 namespace Api;
 
-
 use Api\Dependencies\Dependencies;
 use Api\Middlewares\Middlewares;
 
@@ -31,7 +30,6 @@ class App extends \Slim\App
     {
         if (!empty($modules)) {
             foreach ($modules as $module) {
-
                 if (is_callable($module)) {
                     if ($type == 'middleware') {
                         $this->add($module);
@@ -72,5 +70,4 @@ class App extends \Slim\App
 
         return $this;
     }
-
 }

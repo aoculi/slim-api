@@ -12,14 +12,14 @@ class UnProcessableEntityResponse
      * @param int|null $status
      * @return ResponseInterface
      */
-    static public function send(ResponseInterface $response, string $message, ?int $status = 422):ResponseInterface
+    public static function send(ResponseInterface $response, string $message, ?int $status = 422):ResponseInterface
     {
-        $res = array(
-            'error' => array(
+        $res = [
+            'error' => [
                 'code' => $status,
                 'message' => $message
-            )
-        );
+            ]
+        ];
 
         return $response
             ->withStatus($status)

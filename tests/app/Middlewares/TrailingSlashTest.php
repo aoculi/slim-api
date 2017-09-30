@@ -37,5 +37,4 @@ class AppTest extends BaseCase
         $response = $this->runApp('GET', $path);
         $this->assertEquals(404, $response->getStatusCode());
     }
-
 }

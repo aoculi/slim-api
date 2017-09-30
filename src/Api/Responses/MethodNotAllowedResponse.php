@@ -14,15 +14,19 @@ class MethodNotAllowedResponse
      * @param array|null $methods
      * @return ResponseInterface
      */
-    static public function send(ResponseInterface $response, ?string $message = 'This method is not supported for the requested resource.', ?int $status = 405, ?array $methods): ResponseInterface
-    {
-        $res = array(
-            'error' => array(
+    public static function send(
+        ResponseInterface $response,
+        ?string $message = 'This method is not supported for the requested resource.',
+        ?int $status = 405,
+        ?array $methods = []
+    ): ResponseInterface {
+        $res = [
+            'error' => [
                 'code' => $status,
                 'message' => $message,
                 'help' => ''
-            )
-        );
+            ]
+        ];
 
         $response = $response
             ->withStatus($status)

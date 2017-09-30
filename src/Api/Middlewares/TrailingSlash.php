@@ -14,7 +14,6 @@ class TrailingSlash extends Module
         $path = $uri->getPath();
 
         if ($path != '/' && substr($path, -1) == '/') {
-
             // Test that the route exist
             $found = false;
             $newPath = (substr($path, 0, -1));

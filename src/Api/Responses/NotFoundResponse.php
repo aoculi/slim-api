@@ -12,14 +12,17 @@ class NotFoundResponse
      * @param int|null $status
      * @return ResponseInterface
      */
-    static public function send(ResponseInterface $response, ?string $message = 'The requested resource could not be found.', ?int $status = 404): ResponseInterface
-    {
-        $res = array(
-            'error' => array(
+    public static function send(
+        ResponseInterface $response,
+        ?string $message = 'The requested resource could not be found.',
+        ?int $status = 404
+    ): ResponseInterface {
+        $res = [
+            'error' => [
                 'code' => $status,
                 'message' => $message
-            )
-        );
+            ]
+        ];
 
         return $response
             ->withStatus($status)
