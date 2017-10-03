@@ -14,4 +14,4 @@ install:
 
 script:
   - ./vendor/bin/phpcs -s
-  - ./vendor/bin/phpunit --colors --coverage-text
+  - ./vendor/bin/phpunit --colors
