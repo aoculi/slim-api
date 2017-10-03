@@ -1,6 +1,6 @@
 # Slim Api
 
-[![Build Status](https://travis-ci.org/aoculi/slim-api.svg?branch=master)](https://travis-ci.org/aoculi/slim-api)
+[![Build Status](https://travis-ci.org/aoculi/slim-api.svg?branch=master)](https://travis-ci.org/aoculi/slim-api) [![License](https://poser.pugx.org/aoculi/slim-api/license)](https://packagist.org/packages/aoculi/slim-api)
 
 This is a starter Api code for Slim 3.0+. 
 This Api was designed to be a unique starter code when starting a fresh new Api.
