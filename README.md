@@ -16,7 +16,30 @@ You can add new routes for your api on public/index.php
 ```bash
 $app = (new App($config))
     ->addEndpoint(Api\Home\Routes\Home::class)
-    ->addEndpoint(Api\EndpointName\Routes\Endpoint::class); 
+    ->addEndpoint(Api\Auth\Routes\Auth::class)
+    ->addEndpoint(Api\MyNewEndPointName\Routes\MyEndPoint::class); 
+```
+
+## Authentication
+POST /v1/auth with good credentials as Basic Auth
+```bash
+curl --request POST \
+  --url http://192.168.33.33/v1/auth \
+  --user admin:test
+```  
+
+HTTP/1.1 201 Created
+Content-Type: application/json
+{
+    "token": "XXXXXXXXXX",
+    "expires": 1491030210
+}
+
+Now you can access all other routes with the token
+```bash
+curl --request GET \
+  --url http://192.168.33.33/ \
+  --header 'authorization: Bearer {TOKEN}' \
 ```
 
 
