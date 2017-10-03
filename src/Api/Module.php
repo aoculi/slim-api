@@ -2,31 +2,32 @@
 
 namespace Api;
 
+use Api\Interfaces\ModuleInterface;
 use Psr\Container\ContainerInterface;
 
-class Module
+class Module implements ModuleInterface
 {
     /**
-     * @var callable
+     * @var App
      */
-    public $app;
+    protected $app;
 
     /**
      * @var ContainerInterface
      */
-    public $container;
+    protected $container;
 
     /**
-     * Provider constructor.
-     * @param callable $app
+     * Module constructor.
+     * @param App $app
      */
-    public function __construct(callable $app)
+    public function __construct(App $app)
     {
         $this->app = $app;
         $this->container = $app->getContainer();
 
-        if (method_exists($this, 'moduleInit')) {
-            $this->moduleInit();
+        if (method_exists($this, 'render')) {
+            $this->render();
         }
     }
 }

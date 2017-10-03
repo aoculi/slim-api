@@ -8,7 +8,7 @@ use Api\Responses\NotFoundResponse;
 class NotFoundHandler extends Module
 {
 
-    public function moduleInit()
+    public function render()
     {
         $c = $this->container;
         $c['notFoundHandler'] = function ($c) {

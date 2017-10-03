@@ -13,8 +13,8 @@ class App extends \Slim\App
         parent::__construct($container);
 
         // Get all modules
-        $dependencies = (new Dependencies($this))->get();
-        $middlewares = (new Middlewares($this))->get();
+        $dependencies = (new Dependencies($this))->render();
+        $middlewares = (new Middlewares($this))->render();
 
         // Activate all modules
         $this->activateModules($dependencies, 'dependency');
@@ -64,8 +64,10 @@ class App extends \Slim\App
     public function addEndpoint(string $class): self
     {
         if (class_exists($class)) {
-            // Init the route
-            (new $class($this))->get();
+            $route = new $class($this);
+            if (method_exists($route, 'render')) {
+                $route->render();
+            }
         }
 
         return $this;

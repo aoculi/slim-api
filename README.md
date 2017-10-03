@@ -11,6 +11,14 @@ Get last version with [Composer](http://getcomposer.org "Composer").
 ```bash
 composer require aoculi/slim-api
 ```
+## Create a new Endpoint
+You can add new routes for your api on public/index.php
+```bash
+$app = (new App($config))
+    ->addEndpoint(Api\Home\Routes\Home::class)
+    ->addEndpoint(Api\EndpointName\Routes\Endpoint::class); 
+```
+
 
 ## To do
 aoculi/slim-api-users (endpoint users + tokens + session + roles?)

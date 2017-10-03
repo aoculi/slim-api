@@ -8,7 +8,7 @@ use Api\Responses\InternalServerErrorResponse;
 class ErrorHandler extends Module
 {
 
-    public function moduleInit()
+    public function render()
     {
         $c = $this->container;
         $c['errorHandler'] = function ($c) {

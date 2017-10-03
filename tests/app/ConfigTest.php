@@ -3,9 +3,9 @@
 namespace Tests\App;
 
 use Api\Config;
-use PHPUnit\Framework\TestCase;
+use Tests\SlimFrameworkTestCase;
 
-class ConfigTest extends TestCase
+class ConfigTest extends SlimFrameworkTestCase
 {
     public function testhasMethods()
     {

@@ -8,7 +8,7 @@ use Slim\HttpCache\CacheProvider;
 class HttpCache extends Module
 {
 
-    public function moduleInit()
+    public function render()
     {
         $c = $this->container;
         $c['cache'] = function () {

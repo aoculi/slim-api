@@ -7,7 +7,7 @@ use Api\Route;
 
 class Home extends Route
 {
-    public function get()
+    public function render(): void
     {
         $app = $this->app;
 

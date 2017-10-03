@@ -8,7 +8,7 @@ use Api\Module;
 class Event extends Module
 {
 
-    public function moduleInit()
+    public function render()
     {
         $c = $this->container;
         $c['events'] = function () {

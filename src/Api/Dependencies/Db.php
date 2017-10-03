@@ -8,7 +8,7 @@ use Illuminate\Database\Capsule\Manager;
 class Db extends Module
 {
 
-    public function moduleInit()
+    public function render()
     {
         $c = $this->container;
         $c['db'] = function ($c) {

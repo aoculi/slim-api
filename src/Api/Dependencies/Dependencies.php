@@ -6,13 +6,13 @@ use Api\Provider;
 
 class Dependencies extends Provider
 {
-    public function get(): array
+    public function render(): array
     {
         return [
-            ErrorHandler::class,
+            NotAllowedHandler::class,
+            //ErrorHandler::class,
             PhpErrorHandler::class,
             notFoundHandler::class,
-            NotAllowedHandler::class,
             Flash::class,
             Event::class,
             HttpCache::class,

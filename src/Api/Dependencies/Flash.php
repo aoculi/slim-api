@@ -8,7 +8,7 @@ use Api\Module;
 class Flash extends Module
 {
 
-    public function moduleInit()
+    public function render()
     {
         $c = $this->container;
         $c['flash'] = function () {

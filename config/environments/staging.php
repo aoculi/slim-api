@@ -12,6 +12,8 @@ return [
         'displayErrorDetails' => true,// Display call stack in orignal slim error when debug is off
 
         'environment' => 'development',
+        'adminPassword' => getenv('ADMIN_PASSWORD'),
+        'jwt' => getenv('JWT_SECRET'),
 
         // Databases
         'db' => [

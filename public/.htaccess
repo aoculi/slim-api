@@ -8,3 +8,6 @@ RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
+
+# https://github.com/tuupola/slim-jwt-auth#install
+RewriteRule .* - [env=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

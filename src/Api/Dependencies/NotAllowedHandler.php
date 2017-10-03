@@ -8,7 +8,7 @@ use Api\Responses\MethodNotAllowedResponse;
 class NotAllowedHandler extends Module
 {
 
-    public function moduleInit()
+    public function render()
     {
         $c = $this->container;
         $c['notAllowedHandler'] = function ($c) {

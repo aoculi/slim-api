@@ -2,27 +2,33 @@
 
 namespace Api;
 
+use Api\Interfaces\EndpointInterface;
 use Psr\Container\ContainerInterface;
 
-class Route
+class Route implements EndpointInterface
 {
     /**
-     * @var callable
+     * @var App
      */
-    public $app;
+    protected $app;
 
     /**
      * @var ContainerInterface
      */
-    public $container;
+    protected $container;
 
     /**
-     * Provider constructor.
-     * @param callable $app
+     * Route constructor.
+     * @param App $app
      */
-    public function __construct(callable $app)
+    public function __construct(App $app)
     {
         $this->app = $app;
         $this->container = $app->getContainer();
+    }
+
+    public function render(): void
+    {
+        // TODO: Implement render() method.
     }
 }
