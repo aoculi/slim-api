@@ -13,5 +13,5 @@ install:
   - composer install
 
 script:
-  - phpcs -s
-  - phpunit --colors --coverage-text
+  - ./vendor/bin/phpcs -s
+  - ./vendor/bin/phpunit --colors --coverage-text
