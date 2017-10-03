@@ -9,5 +9,7 @@ interface EndpointInterface
 
     public function __construct(App $app);
 
+    public function getApiVersion():string;
+
     public function render(): void;
 }

@@ -10,24 +10,6 @@ return [
 
         'debug' => true,// Enable whoops
         'whoops.editor' => 'sublime', // Support click to open editor
-        'displayErrorDetails' => true,// Display call stack in orignal slim error when debug is off
-
-        'environment' => 'development',
-        'adminPassword' => getenv('ADMIN_PASSWORD'),
-        'jwt' => getenv('JWT_SECRET'),
-
-        // Databases
-        'db' => [
-            'mysql' => [
-                'driver' => getenv('DB_DRIVER'),
-                'host' => getenv('DB_HOST'),
-                'database' => getenv('DB_DATABASE'),
-                'username' => getenv('DB_USERNAME'),
-                'password' => getenv('DB_PASSWORD'),
-                'charset' => getenv('DB_CHARSET'),
-                'collation' => getenv('DB_COLLATION'),
-                'prefix' => getenv('DB_PREFIX')
-            ]
-        ]
+        'displayErrorDetails' => true,// Display call stack in original slim error when debug is off
     ],
 ];

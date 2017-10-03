@@ -11,7 +11,7 @@ class Auth extends Route
     {
         $app = $this->app;
         $app->group(
-            '/v1/auth',
+            $this->getApiVersion() .'/auth',
             function () {
                 $this->post('', AuthController::class . ':index');
             }

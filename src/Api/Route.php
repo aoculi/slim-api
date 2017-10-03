@@ -27,6 +27,11 @@ class Route implements EndpointInterface
         $this->container = $app->getContainer();
     }
 
+    public function getApiVersion(): string
+    {
+        return $this->container['settings']['apiVersionPath'];
+    }
+
     public function render(): void
     {
         // TODO: Implement render() method.

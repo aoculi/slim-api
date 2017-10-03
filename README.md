@@ -1,5 +1,7 @@
 # Slim Api
 
+[![Build Status](https://travis-ci.org/aoculi/slim-api.svg?branch=master)](https://travis-ci.org/aoculi/slim-api)
+
 This is a starter Api code for Slim 3.0+. 
 This Api was designed to be a unique starter code when starting a fresh new Api.
 This project was also built to be easily extensible when we need common endpoint (cf: future endpoint plugins). 
