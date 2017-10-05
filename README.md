@@ -44,9 +44,19 @@ curl --request GET \
   --header 'authorization: Bearer {TOKEN}' \
 ```
 
-
+## Add a slim-api endpoint extension
+You can check the documentation: [aoculi/slim-api-users](https://github.com/aoculi/slim-api-users)
+```bash
+make endpoint-users
+```
+and add the new endpoints in your app
+```bash
+$app = (new App($config))
+    ->...
+    ->addEndpoint(Api\Authentication\Routes\Authentication::class)
+    ->addEndpoint(Api\Users\Routes\Users::class); 
+```
 ## To do
-* aoculi/slim-api-users (endpoint users + tokens and session management + roles?)
 * aoculi/slim-api-migration (use phinx)
 * aoculi/slim-api-email (use swiftmailer/swiftmailer?)
 * aoculi/slim-api-validation (use respect/validation)
