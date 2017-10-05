@@ -10,7 +10,7 @@ session_start();
 $config = Config::get('settings');
 
 $app = (new App($config))
-    ->addEndpoint(Api\Auth\Routes\Auth::class)
-    ->addEndpoint(Api\Home\Routes\Home::class);
+    ->addEndpoint(Api\Endpoints\Token\Routes\Token::class)
+    ->addEndpoint(Api\Endpoints\Home\Routes\Home::class);
 
 $app->run();

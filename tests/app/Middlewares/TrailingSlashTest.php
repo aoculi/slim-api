@@ -11,7 +11,7 @@ class TrailingSlashTest extends SlimFrameworkTestCase
     public function init()
     {
         // Get token
-        $path = '/v1/auth';
+        $path = '/v1/token';
         $headers = [
             'PHP_AUTH_USER' => 'admin',
             'PHP_AUTH_PW' => getenv('ADMIN_PASSWORD')

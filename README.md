@@ -17,16 +17,16 @@ composer require aoculi/slim-api
 You can add new routes for your api on public/index.php
 ```bash
 $app = (new App($config))
-    ->addEndpoint(Api\Auth\Routes\Auth::class)
+    ->addEndpoint(Api\Token\Routes\Token::class)
     ->addEndpoint(Api\Home\Routes\Home::class)
     ->addEndpoint(Api\MyNewEndPointName\Routes\MyEndPoint::class); 
 ```
 
 ## Authentication
-POST /v1/auth with good credentials as Basic Auth
+POST /v1/token with good credentials as Basic Auth
 ```bash
 curl --request POST \
-  --url http://192.168.33.33/v1/auth \
+  --url http://192.168.33.33/v1/token \
   --user admin:test
 ```  
 
@@ -46,9 +46,9 @@ curl --request GET \
 
 
 ## To do
-aoculi/slim-api-users (endpoint users + tokens + session + roles?)
-aoculi/slim-api-migration (use phinx)
-aoculi/slim-api-email (use swiftmailer/swiftmailer?)
-aoculi/slim-api-validation (use respect/validation)
-aoculi/slim-api-comments (endpoint comments)
-aoculi/slim-api-likes (endpoint likes)
+* aoculi/slim-api-users (endpoint users + tokens and session management + roles?)
+* aoculi/slim-api-migration (use phinx)
+* aoculi/slim-api-email (use swiftmailer/swiftmailer?)
+* aoculi/slim-api-validation (use respect/validation)
+* aoculi/slim-api-comments (endpoint comments)
+* aoculi/slim-api-likes (endpoint likes)

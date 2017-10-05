@@ -9,16 +9,16 @@ class AuthTest extends SlimFrameworkTestCase
 
     private static $token = '';
 
-    public function testAuthRouteWhithoutCredentials()
+    public function testTokenRouteWhithoutCredentials()
     {
-        $path = '/v1/auth';
+        $path = '/v1/token';
         $response = $this->post($path);
         $this->assertEquals(401, $response->getStatusCode());
     }
 
-    public function testAuthRouteWithBadCredentials()
+    public function testTokenRouteWithBadCredentials()
     {
-        $path = '/v1/auth';
+        $path = '/v1/token';
         $headers = [
             'PHP_AUTH_USER' => 'admin',
             'PHP_AUTH_PW' => 'badPass'
@@ -27,9 +27,9 @@ class AuthTest extends SlimFrameworkTestCase
         $this->assertEquals(401, $response->getStatusCode());
     }
 
-    public function testAuthRouteWithGoodCredentials()
+    public function testTokenRouteWithGoodCredentials()
     {
-        $path = '/v1/auth';
+        $path = '/v1/token';
         $headers = [
             'PHP_AUTH_USER' => 'admin',
             'PHP_AUTH_PW' => getenv('ADMIN_PASSWORD')

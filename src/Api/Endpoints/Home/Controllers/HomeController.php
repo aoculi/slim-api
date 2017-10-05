@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Home\Controllers;
+namespace Api\Endpoints\Home\Controllers;
 
 use Api\Controller;
 use Api\Responses\OkResponse;

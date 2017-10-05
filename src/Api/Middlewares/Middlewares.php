@@ -20,11 +20,11 @@ class Middlewares extends Provider
             $modules[] = new WhoopsMiddleware($app);
         }
 
-        // Use to check user credential on /auth page
+        // Use to check user credential on /token page
         // TODO: relaxed and secure need to be managed in config file
         $modules[] = new HttpBasicAuthentication(
             [
-                "path" => ['/v1/auth'],
+                "path" => ['/v1/token'],
                 "secure" => false,
                 "users" => [
                     "admin" => $this->container->get('settings')['adminPassword']
@@ -36,12 +36,12 @@ class Middlewares extends Provider
             ]
         );
 
-        // User to check user token on all pages expect on the auth page
+        // User to check user token on all pages expect on the /token page
         // TODO: relaxed and secure need to be managed in config file
         $modules[] = new JwtAuthentication(
             [
                 "path" => '/',
-                "passthrough" => ['/v1/auth'],
+                "passthrough" => ['/v1/token'],
                 "secure" => false,
                 "secret" => $this->container->get('settings')['jwt'],
                 // "logger" => $container["logger"],

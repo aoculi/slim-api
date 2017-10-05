@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Auth\Controllers;
+namespace Api\Endpoints\Token\Controllers;
 
 use Api\Controller;
 use Api\Responses\CreatedResponse;
@@ -8,7 +8,7 @@ use Firebase\JWT\JWT;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class AuthController extends Controller
+class TokenController extends Controller
 {
 
     public function index(ServerRequestInterface $request, ResponseInterface $response, $arguments)

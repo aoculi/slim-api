@@ -1,8 +1,8 @@
 <?php
 
-namespace Api\Home\Routes;
+namespace Api\Endpoints\Home\Routes;
 
-use Api\Home\Controllers\HomeController;
+use Api\Endpoints\Home\Controllers\HomeController;
 use Api\Route;
 
 class Home extends Route
