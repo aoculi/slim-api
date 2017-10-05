@@ -12,4 +12,8 @@ interface EndpointInterface
     public function getApiVersion():string;
 
     public function render(): void;
+
+    public function getMigration();
+
+    public function getSeed();
 }

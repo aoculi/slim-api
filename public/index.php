@@ -3,9 +3,11 @@
 use Api\App;
 use Api\Config;
 
-require '../vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 
-session_start();
+if (php_sapi_name() !== 'cli') {
+    session_start();
+}
 
 $config = Config::get('settings');
 
@@ -13,4 +15,7 @@ $app = (new App($config))
     ->addEndpoint(Api\Endpoints\Token\Routes\Token::class)
     ->addEndpoint(Api\Endpoints\Home\Routes\Home::class);
 
-$app->run();
+// Do not run the app if we are using cli
+if (php_sapi_name() !== 'cli') {
+    $app->run();
+}

@@ -7,6 +7,9 @@ use Api\Route;
 
 class Token extends Route
 {
+    protected $migration = null;
+    protected $seed = null;
+
     public function render(): void
     {
         $app = $this->app;

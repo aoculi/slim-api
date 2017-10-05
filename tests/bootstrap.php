@@ -28,13 +28,7 @@ class SlimFrameworkTestCase extends TestCase
     // Run for each unit test to setup our slim app environment
     public function setup()
     {
-        require_once dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
-
-        $config = Config::get('settings');
-
-        $app = (new App($config))
-            ->addEndpoint(\Api\Endpoints\Home\Routes\Home::class)
-            ->addEndpoint(\Api\Endpoints\Token\Routes\Token::class);
+        require './public/index.php';
 
         // Create a fake route for testing
         $app->get(

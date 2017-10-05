@@ -5,7 +5,7 @@ namespace Api;
 use Api\Interfaces\EndpointInterface;
 use Psr\Container\ContainerInterface;
 
-class Route implements EndpointInterface
+abstract class Route implements EndpointInterface
 {
     /**
      * @var App
@@ -16,6 +16,10 @@ class Route implements EndpointInterface
      * @var ContainerInterface
      */
     protected $container;
+
+    protected $migration = '/DB/migrations';
+
+    protected $seed = '/DB/seeds';
 
     /**
      * Route constructor.
@@ -35,5 +39,21 @@ class Route implements EndpointInterface
     public function render(): void
     {
         // TODO: Implement render() method.
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getMigration()
+    {
+        return $this->migration;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSeed()
+    {
+        return $this->seed;
     }
 }

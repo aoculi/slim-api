@@ -5,7 +5,7 @@ namespace Api;
 use Api\Interfaces\ModuleInterface;
 use Psr\Container\ContainerInterface;
 
-class Module implements ModuleInterface
+abstract class Module implements ModuleInterface
 {
     /**
      * @var App

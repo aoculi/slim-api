@@ -8,6 +8,10 @@ use Api\Middlewares\Middlewares;
 class App extends \Slim\App
 {
 
+    private $endpoints = [];
+    private $migrations = [];
+    private $seeds = [];
+
     public function __construct($container = [])
     {
         parent::__construct($container);
@@ -65,11 +69,44 @@ class App extends \Slim\App
     {
         if (class_exists($class)) {
             $route = new $class($this);
+
+            $this->endpoints[] = $class;
+            if ($route->getMigration()) {
+                $path = $this->getClassPath($route);
+                $this->migrations[] = dirname($path) . $route->getMigration();
+            }
+            if ($route->getSeed()) {
+                $path = $this->getClassPath($route);
+                $this->seeds[] = dirname($path) . $route->getSeed();
+            }
+
             if (method_exists($route, 'render')) {
                 $route->render();
             }
         }
 
         return $this;
+    }
+
+    public function getMigrations()
+    {
+        return $this->migrations;
+    }
+
+    public function getSeeds()
+    {
+        return $this->seeds;
+    }
+
+    /**
+     * Return the path of a class
+     * @param $class
+     * @return string
+     */
+    private function getClassPath($class): string
+    {
+        $reflector = new \ReflectionClass($class);
+        $fn = $reflector->getFileName();
+        return dirname($fn);
     }
 }
