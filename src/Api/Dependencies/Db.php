@@ -2,10 +2,10 @@
 
 namespace Api\Dependencies;
 
-use Api\Module;
+use Api\AbstractModule;
 use Illuminate\Database\Capsule\Manager;
 
-class Db extends Module
+class Db extends AbstractModule
 {
 
     public function render()

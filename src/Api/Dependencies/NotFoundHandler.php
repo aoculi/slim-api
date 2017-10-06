@@ -2,10 +2,10 @@
 
 namespace Api\Dependencies;
 
-use Api\Module;
+use Api\AbstractModule;
 use Api\Responses\NotFoundResponse;
 
-class NotFoundHandler extends Module
+class NotFoundHandler extends AbstractModule
 {
 
     public function render()

@@ -1,14 +1,12 @@
 <?php
 
-namespace Api\Endpoints\Token\Routes;
+namespace Api\Endpoints\Token;
 
+use Api\AbstractEndpoint;
 use Api\Endpoints\Token\Controllers\TokenController;
-use Api\Route;
 
-class Token extends Route
+class Endpoint extends AbstractEndpoint
 {
-    protected $migration = null;
-    protected $seed = null;
 
     public function render(): void
     {

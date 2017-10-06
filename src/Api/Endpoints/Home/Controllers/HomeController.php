@@ -2,12 +2,12 @@
 
 namespace Api\Endpoints\Home\Controllers;
 
-use Api\Controller;
+use Api\AbstractController;
 use Api\Responses\OkResponse;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class HomeController extends Controller
+class HomeController extends AbstractController
 {
 
     public function index(ServerRequestInterface $request, ResponseInterface $response, $arguments)

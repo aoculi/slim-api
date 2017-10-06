@@ -10,7 +10,7 @@ namespace Api;
 
 use Psr\Container\ContainerInterface;
 
-abstract class Controller
+abstract class AbstractController
 {
     /**
      * @var ContainerInterface

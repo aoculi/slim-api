@@ -3,9 +3,9 @@
 namespace Api\Dependencies;
 
 use League\Event\Emitter;
-use Api\Module;
+use Api\AbstractModule;
 
-class Event extends Module
+class Event extends AbstractModule
 {
 
     public function render()

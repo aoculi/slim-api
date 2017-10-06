@@ -13,7 +13,5 @@ interface EndpointInterface
 
     public function render(): void;
 
-    public function getMigration();
-
-    public function getSeed();
+    public function getValidationRules(): ?array;
 }

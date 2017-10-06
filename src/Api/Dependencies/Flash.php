@@ -3,9 +3,9 @@
 namespace Api\Dependencies;
 
 use \Slim\Flash\Messages;
-use Api\Module;
+use Api\AbstractModule;
 
-class Flash extends Module
+class Flash extends AbstractModule
 {
 
     public function render()

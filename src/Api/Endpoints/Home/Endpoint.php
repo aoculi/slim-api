@@ -1,14 +1,12 @@
 <?php
 
-namespace Api\Endpoints\Home\Routes;
+namespace Api\Endpoints\Home;
 
 use Api\Endpoints\Home\Controllers\HomeController;
-use Api\Route;
+use Api\AbstractEndpoint;
 
-class Home extends Route
+class Endpoint extends AbstractEndpoint
 {
-    protected $migration = null;
-    protected $seed = null;
 
     public function render(): void
     {

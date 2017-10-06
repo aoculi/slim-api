@@ -8,10 +8,22 @@ use Api\Middlewares\Middlewares;
 class App extends \Slim\App
 {
 
+    /**
+     * Endpoints defined in index.php
+     * @var array[EndpointInterface]
+     */
     private $endpoints = [];
-    private $migrations = [];
-    private $seeds = [];
 
+    /**
+     * Validation rules
+     * @var array
+     */
+    private $rules = [];
+
+    /**
+     * App constructor.
+     * @param array $container
+     */
     public function __construct($container = [])
     {
         parent::__construct($container);
@@ -26,7 +38,6 @@ class App extends \Slim\App
     }
 
     /**
-     * Active all modules
      * @param array $modules
      * @param string $type
      */
@@ -68,34 +79,56 @@ class App extends \Slim\App
     public function addEndpoint(string $class): self
     {
         if (class_exists($class)) {
-            $route = new $class($this);
+            $endpoint = new $class($this);
 
-            $this->endpoints[] = $class;
-            if ($route->getMigration()) {
-                $path = $this->getClassPath($route);
-                $this->migrations[] = dirname($path) . $route->getMigration();
-            }
-            if ($route->getSeed()) {
-                $path = $this->getClassPath($route);
-                $this->seeds[] = dirname($path) . $route->getSeed();
+            $rules = $endpoint->getValidationRules();
+            if ($rules && !empty($rules)) {
+                $this->rules = array_merge($this->rules, $rules);
             }
 
-            if (method_exists($route, 'render')) {
-                $route->render();
+            $this->endpoints[] = $this;
+
+            if (method_exists($endpoint, 'render')) {
+                $endpoint->render();
             }
         }
 
         return $this;
     }
 
-    public function getMigrations()
+    public function getMigrations(): array
     {
-        return $this->migrations;
+        $endpoints = $this->endpoints;
+        $migrations = [];
+        foreach ($endpoints as $endpoint) {
+            $path = $this->getClassPath($endpoint);
+            $migrationPath = $path . '/DB/migrations';
+            if (is_dir($migrationPath)) {
+                $migrations[] = $migrationPath;
+            }
+        }
+
+        return $migrations;
     }
 
-    public function getSeeds()
+    public function getSeeds(): array
     {
-        return $this->seeds;
+        $endpoints = $this->endpoints;
+        $seeds = [];
+        foreach ($endpoints as $endpoint) {
+            $path = $this->getClassPath($endpoint);
+            $seedPath = $path . '/DB/seeds';
+            if (is_dir($seedPath)) {
+                $seeds[] = $seedPath;
+            }
+        }
+
+        return $seeds;
+    }
+
+    public function getValidationRules(): array
+    {
+        return $this->rules;
     }
 
     /**

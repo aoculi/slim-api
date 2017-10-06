@@ -2,10 +2,10 @@
 
 namespace Api\Dependencies;
 
-use Api\Module;
+use Api\AbstractModule;
 use Slim\HttpCache\CacheProvider;
 
-class HttpCache extends Module
+class HttpCache extends AbstractModule
 {
 
     public function render()

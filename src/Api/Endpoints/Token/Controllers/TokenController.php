@@ -2,13 +2,13 @@
 
 namespace Api\Endpoints\Token\Controllers;
 
-use Api\Controller;
+use Api\AbstractController;
 use Api\Responses\CreatedResponse;
 use Firebase\JWT\JWT;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class TokenController extends Controller
+class TokenController extends AbstractController
 {
 
     public function index(ServerRequestInterface $request, ResponseInterface $response, $arguments)

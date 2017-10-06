@@ -2,14 +2,14 @@
 
 namespace Api\Middlewares;
 
-use Api\Provider;
+use Api\AbstractProvider;
 use Api\Responses\UnAuthorizedResponse;
 use Slim\HttpCache\Cache;
 use Slim\Middleware\HttpBasicAuthentication;
 use Slim\Middleware\JwtAuthentication;
 use Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware;
 
-class Middlewares extends Provider
+class Middlewares extends AbstractProvider
 {
 
     public function render(): array
@@ -56,8 +56,12 @@ class Middlewares extends Provider
 
         $modules[] = new TrailingSlash($app);
 
-        // TODO: https://www.slimframework.com/docs/features/caching.html
+        // TODO: Improve settings, check here -> https://www.slimframework.com/docs/features/caching.html
         $modules[] = new Cache('public', 86400);
+
+        // Get all validations rules from all registered endpoints
+        // $validators = $app->getValidatorRules();
+        // $modules[] = new \DavidePastore\Slim\Validation\Validation($validators)
 
         return $modules;
     }

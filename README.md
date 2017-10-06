@@ -17,9 +17,9 @@ composer require aoculi/slim-api
 You can add new routes for your api on public/index.php
 ```bash
 $app = (new App($config))
-    ->addEndpoint(Api\Token\Routes\Token::class)
-    ->addEndpoint(Api\Home\Routes\Home::class)
-    ->addEndpoint(Api\MyNewEndPointName\Routes\MyEndPoint::class); 
+    ->addEndpoint(Api\EndPoints\Token\EndPoint::class)
+    ->addEndpoint(Api\EndPoints\Home\EndPoint::class)
+    ->addEndpoint(Api\EndPoints\MyNewEndPointName\EndPoint::class); 
 ```
 
 ## Authentication

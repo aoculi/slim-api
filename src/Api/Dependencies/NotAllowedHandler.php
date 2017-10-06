@@ -2,10 +2,10 @@
 
 namespace Api\Dependencies;
 
-use Api\Module;
+use Api\AbstractModule;
 use Api\Responses\MethodNotAllowedResponse;
 
-class NotAllowedHandler extends Module
+class NotAllowedHandler extends AbstractModule
 {
 
     public function render()

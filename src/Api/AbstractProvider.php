@@ -5,7 +5,7 @@ namespace Api;
 use Api\Interfaces\ProviderInterface;
 use Psr\Container\ContainerInterface;
 
-abstract class Provider implements ProviderInterface
+abstract class AbstractProvider implements ProviderInterface
 {
     /**
      * @var App

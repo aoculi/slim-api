@@ -5,7 +5,7 @@ namespace Api;
 use Api\Interfaces\EndpointInterface;
 use Psr\Container\ContainerInterface;
 
-abstract class Route implements EndpointInterface
+class AbstractEndpoint implements EndpointInterface
 {
     /**
      * @var App
@@ -16,10 +16,6 @@ abstract class Route implements EndpointInterface
      * @var ContainerInterface
      */
     protected $container;
-
-    protected $migration = '/DB/migrations';
-
-    protected $seed = '/DB/seeds';
 
     /**
      * Route constructor.
@@ -42,18 +38,12 @@ abstract class Route implements EndpointInterface
     }
 
     /**
-     * @return string|null
+     * Return Validation rules for elements in request (check: Respect/Validation)
+     *
+     * @return array|null
      */
-    public function getMigration()
+    public function getValidationRules(): ?array
     {
-        return $this->migration;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getSeed()
-    {
-        return $this->seed;
+        return [];
     }
 }

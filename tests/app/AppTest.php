@@ -6,7 +6,7 @@ use Tests\SlimFrameworkTestCase;
 
 class AppTest extends SlimFrameworkTestCase
 {
-    public function testhasMethodsGetMigationDirectories()
+    public function testhasMethodsGetMigrations()
     {
         require './public/index.php';
 
@@ -14,11 +14,19 @@ class AppTest extends SlimFrameworkTestCase
         $this->assertTrue($exist);
     }
 
-    public function testhasMethodsGetSeedDirectories()
+    public function testhasMethodsGetSeeds()
     {
         require './public/index.php';
 
         $exist = method_exists($app, 'getSeeds');
+        $this->assertTrue($exist);
+    }
+
+    public function testhasMethodsGetValidationRules()
+    {
+        require './public/index.php';
+
+        $exist = method_exists($app, 'getValidationRules');
         $this->assertTrue($exist);
     }
 }

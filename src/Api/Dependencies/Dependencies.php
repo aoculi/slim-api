@@ -2,16 +2,16 @@
 
 namespace Api\Dependencies;
 
-use Api\Provider;
+use Api\AbstractProvider;
 
-class Dependencies extends Provider
+class Dependencies extends AbstractProvider
 {
     public function render(): array
     {
         return [
             NotAllowedHandler::class,
             //ErrorHandler::class,
-            PhpErrorHandler::class,
+            PhpErrorHandlerAbstract::class,
             notFoundHandler::class,
             Flash::class,
             Event::class,

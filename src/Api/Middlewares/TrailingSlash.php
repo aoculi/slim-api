@@ -2,11 +2,11 @@
 
 namespace Api\Middlewares;
 
-use Api\Module;
+use Api\AbstractModule;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class TrailingSlash extends Module
+class TrailingSlash extends AbstractModule
 {
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next)
     {

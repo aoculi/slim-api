@@ -2,10 +2,10 @@
 
 namespace Api\Dependencies;
 
-use Api\Module;
+use Api\AbstractModule;
 use Api\Responses\InternalServerErrorResponse;
 
-class ErrorHandler extends Module
+class ErrorHandler extends AbstractModule
 {
 
     public function render()
