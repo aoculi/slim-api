@@ -1,7 +1,7 @@
 {
   "name": "aoculi/slim-api",
   "description": "Starter pack to create an API with slim 3",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "project",
   "keywords": [
     "Slim 3",
