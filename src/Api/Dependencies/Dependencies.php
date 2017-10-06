@@ -11,7 +11,7 @@ class Dependencies extends AbstractProvider
         return [
             NotAllowedHandler::class,
             //ErrorHandler::class,
-            PhpErrorHandlerAbstract::class,
+            PhpErrorHandler::class,
             notFoundHandler::class,
             Flash::class,
             Event::class,
