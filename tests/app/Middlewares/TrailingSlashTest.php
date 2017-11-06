@@ -24,7 +24,7 @@ class TrailingSlashTest extends SlimFrameworkTestCase
     public function testExistingUrlWithNoEndingSlash()
     {
         $this->init();
-        $path = '/phpunit';
+        $path = '/testing';
         $headers = ['HTTP_Authorization' => 'Bearer ' . self::$token];
         $response = $this->get($path, [], $headers);
         $this->assertEquals(200, $response->getStatusCode());
@@ -32,7 +32,7 @@ class TrailingSlashTest extends SlimFrameworkTestCase
 
     public function testExistingUrlWithEndingSlash()
     {
-        $path = '/phpunit/';
+        $path = '/testing/';
         $headers = ['HTTP_Authorization' => 'Bearer ' . self::$token];
         $response = $this->get($path, [], $headers);
         $this->assertEquals(301, $response->getStatusCode());

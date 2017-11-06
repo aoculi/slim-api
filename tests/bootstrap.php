@@ -1,21 +1,27 @@
 <?php
 namespace Tests;
 
-use Api\Config;
-use Api\App;
 use Api\Responses\OkResponse;
 use PHPUnit\Framework\TestCase;
+use Psr\Container\ContainerInterface;
 use Slim\Http\Environment;
 use Slim\Http\Headers;
 use Slim\Http\Request;
 use Slim\Http\RequestBody;
 use Slim\Http\Response;
 use Slim\Http\Uri;
+use Phinx\Config\Config;
+use Phinx\Migration\Manager;
+use Symfony\Component\Console\Input\StringInput;
+use Symfony\Component\Console\Output\NullOutput;
 
 class SlimFrameworkTestCase extends TestCase
 {
     /** @var \Slim\App */
     public $app;
+
+    /** @var ContainerInterface */
+    protected $container;
 
     /** @var  \Slim\Http\Request */
     public $request;
@@ -32,13 +38,24 @@ class SlimFrameworkTestCase extends TestCase
 
         // Create a fake route for testing
         $app->get(
-            '/phpunit',
+            '/testing',
             function ($request, $response) {
                 return OkResponse::send($response, ['Yea']);
             }
         );
 
         $this->app = $app;
+        $this->container = $app->getContainer();
+    }
+
+    public function migrateAndSeedDB(){
+        $pdo = $this->container->get('db')->getConnection()->getPdo();
+        $configArray = require('phinx.php');
+        $configArray['environments']['testing']['connection'] = $pdo;
+        $config = new Config($configArray);
+        $manager = new Manager($config, new StringInput(' '), new NullOutput());
+        $manager->migrate('testing');
+        $manager->seed('testing');
     }
 
     public function __call($method, $arguments)

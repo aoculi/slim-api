@@ -4,7 +4,7 @@ namespace Api\Responses;
 
 use Psr\Http\Message\ResponseInterface;
 
-class UnProcessableEntityResponse
+class UnProcessableEntityResponse extends ApiResponse
 {
     /**
      * @param ResponseInterface $response

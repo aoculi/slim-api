@@ -10,7 +10,6 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class TokenController extends AbstractController
 {
-
     public function index(ServerRequestInterface $request, ResponseInterface $response, $arguments)
     {
         $server = $request->getServerParams();

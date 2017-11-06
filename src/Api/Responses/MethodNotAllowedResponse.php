@@ -4,7 +4,7 @@ namespace Api\Responses;
 
 use Psr\Http\Message\ResponseInterface;
 
-class MethodNotAllowedResponse
+class MethodNotAllowedResponse extends ApiResponse
 {
 
     /**

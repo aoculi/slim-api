@@ -4,7 +4,7 @@ namespace Api\Responses;
 
 use Psr\Http\Message\ResponseInterface;
 
-class ForbiddenResponse
+class ForbiddenResponse extends ApiResponse
 {
     /**
      * @param ResponseInterface $response

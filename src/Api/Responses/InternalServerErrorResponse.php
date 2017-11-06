@@ -4,7 +4,7 @@ namespace Api\Responses;
 
 use Psr\Http\Message\ResponseInterface;
 
-class InternalServerErrorResponse
+class InternalServerErrorResponse extends ApiResponse
 {
     /**
      * @param ResponseInterface $response

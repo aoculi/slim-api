@@ -1,6 +1,6 @@
 <?php
 /**
- * Return Slim App settings for phpunit environment
+ * Return Slim App settings for testing environment
  */
 
 return [

@@ -13,7 +13,7 @@ class Db extends AbstractModule
         $c = $this->container;
         $c['db'] = function ($c) {
             $capsule = new Manager;
-            $capsule->addConnection($c['settings']['db']['mysql']);
+            $capsule->addConnection($c['settings']['db']);
 
             $capsule->setAsGlobal();
             $capsule->bootEloquent();

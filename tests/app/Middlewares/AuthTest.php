@@ -44,7 +44,7 @@ class AuthTest extends SlimFrameworkTestCase
 
     public function testRouteWhitoutToken()
     {
-        $path = '/phpunit';
+        $path = '/testing';
         $response = $this->get($path);
         $this->assertEquals(401, $response->getStatusCode());
     }
@@ -52,7 +52,7 @@ class AuthTest extends SlimFrameworkTestCase
     public function testRouteWhithToken()
     {
         $token = self::$token;
-        $path = '/phpunit';
+        $path = '/testing';
         $headers = [
             'HTTP_Authorization' => "Bearer $token"
         ];

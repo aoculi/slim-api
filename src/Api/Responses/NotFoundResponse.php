@@ -4,7 +4,7 @@ namespace Api\Responses;
 
 use Psr\Http\Message\ResponseInterface;
 
-class NotFoundResponse
+class NotFoundResponse extends ApiResponse
 {
     /**
      * @param ResponseInterface $response

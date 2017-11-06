@@ -4,6 +4,7 @@ namespace Api\Middlewares;
 
 use Api\AbstractProvider;
 use Api\Responses\UnAuthorizedResponse;
+use DavidePastore\Slim\Validation\Validation;
 use Slim\HttpCache\Cache;
 use Slim\Middleware\HttpBasicAuthentication;
 use Slim\Middleware\JwtAuthentication;
@@ -19,6 +20,9 @@ class Middlewares extends AbstractProvider
         if ($this->container->get('settings')["displayErrorDetails"]) {
             $modules[] = new WhoopsMiddleware($app);
         }
+
+        $modules[] = new TrailingSlash($app);
+
 
         // Use to check user credential on /token page
         // TODO: relaxed and secure need to be managed in config file
@@ -54,14 +58,13 @@ class Middlewares extends AbstractProvider
             ]
         );
 
-        $modules[] = new TrailingSlash($app);
-
         // TODO: Improve settings, check here -> https://www.slimframework.com/docs/features/caching.html
+        // TODO: implement 304 Not Modified response
         $modules[] = new Cache('public', 86400);
 
-        // Get all validations rules from all registered endpoints
-        // $validators = $app->getValidatorRules();
-        // $modules[] = new \DavidePastore\Slim\Validation\Validation($validators)
+        // Get all validations rules from all registered endpoints -> https://github.com/DavidePastore/Slim-Validation
+        $validators = $app->getValidationRules();
+        $modules[] = new Validation($validators);
 
         return $modules;
     }

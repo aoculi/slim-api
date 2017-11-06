@@ -4,7 +4,7 @@ namespace Api\Responses;
 
 use Psr\Http\Message\ResponseInterface;
 
-class DeletedResponse
+class DeletedResponse extends ApiResponse
 {
     /**
      * @param ResponseInterface $response

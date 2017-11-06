@@ -37,6 +37,7 @@ class App extends \Slim\App
         $this->activateModules($middlewares, 'middleware');
     }
 
+
     /**
      * @param array $modules
      * @param string $type
@@ -126,7 +127,7 @@ class App extends \Slim\App
         return $seeds;
     }
 
-    public function getValidationRules(): array
+    public function getValidationRules(): ?array
     {
         return $this->rules;
     }
